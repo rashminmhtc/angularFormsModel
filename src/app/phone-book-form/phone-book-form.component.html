@@ -15,7 +15,7 @@
       <div class="form-group">
         <label form="phone">Phone Number:</label>
         <input type="text"class="form-control" id="phone" required [(ngModel)]="model.phone" name="phone"
-        #name="ngModel" #inspectPhone>
+        #name="ngModel" #inspectPhone minlength=10 maxlength=10>
         {{inspectPhone.className}}
       </div>
       <div class="form-group">
