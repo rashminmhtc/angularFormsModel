@@ -1,30 +1,22 @@
 <div>
-  <form #phoneBookForm="ngForm">
+  <form [formGroup]="phoneBookForm">
       <div class="form-group">
         <label for="name">Name:</label>
-        <input type="text"class="form-control" id="name" required [(ngModel)]="model.name" name="name"
-        #name="ngModel" #inspectName>
+        <input type="text"class="form-control" id="name" required formControlName="name"
+         #inspectName minlength=6 maxlength=20> // template driven validation
         {{inspectName.className}}
       </div>
       <div class="form-group">
-        <label form="dob">Date of Birth:</label>
-        <input type="text"class="form-control" id="dob" required [(ngModel)]="model.dob" name="dob"
-        #name="ngModel" #inspectDob>
+        <label for="dob">Date of Birth:</label>
+        <input type="date" class="form-control" id="dob" required formControlName="dob"
+        #inspectDob birthDateValidator> // custom validation
         {{inspectDob.className}}
       </div>
       <div class="form-group">
-        <label form="phone">Phone Number:</label>
-        <input type="text"class="form-control" id="phone" required [(ngModel)]="model.phone" name="phone"
-        #name="ngModel" #inspectPhone minlength=10 maxlength=10>
+        <label for="phone">Phone Number:</label>
+        <input type="text"class="form-control" id="phone" required formControlName="phone" #inspectPhone> // model driven validation
         {{inspectPhone.className}}
       </div>
-      <div class="form-group">
-        <label form="location">Location</label>
-        <select class="form-control" id="location">
-          <option *ngFor="let country of locations" [value]="country" [(ngModel)]="model.location" name="location" #name="ngModel">{{country}}</option>
-        </select>
-      </div>
-
-      <button type="submit" class="btn btn-success" [disabled]="!phoneBookForm.form.valid">Submit</button>
+      <button type="submit" class="btn btn-success" [disabled]="!phoneBookForm.valid">Submit</button>
   </form>
 </div>

@@ -1,10 +1,14 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
+import { PhoneBookFormComponent } from './phone-book-form/phone-book-form.component';
+
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        AppComponent
+        AppComponent,
+        PhoneBookFormComponent,
+        ReactiveFormsModule
       ],
     }).compileComponents();
   }));

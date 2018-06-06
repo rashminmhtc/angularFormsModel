@@ -4,6 +4,6 @@ export class PhoneBook {
         name: string,
         dob,
         phone: string,
-        location?: string
+        location: string
     ) {}
 }
